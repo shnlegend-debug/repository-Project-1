@@ -6,76 +6,78 @@
 
     <title>Project #1 - Sehan</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #111;
-            color: white;
-            text-align: center;
-        }
-
-        header {
-            padding: 30px;
-            background: #1a1a1a;
-        }
-
-        h1 {
-            font-size: 42px;
-            margin-bottom: 10px;
-        }
-
-        p {
-            color: #ccc;
-            font-size: 18px;
-        }
-
-        .container {
-            padding: 80px 20px;
-        }
-
-        .button {
-            display: inline-block;
-            margin-top: 25px;
-            padding: 12px 25px;
-            background: white;
-            color: #111;
-            text-decoration: none;
-            border-radius: 8px;
-        }
-
-        footer {
-            padding: 25px;
-            background: #1a1a1a;
-            color: #888;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
     <header>
-        <h2>PROJECT #1</h2>
-        <p>My First Website</p>
+        <nav>
+            <div class="logo">PROJECT #1</div>
+
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+            </div>
+        </nav>
     </header>
 
-    <div class="container">
-        <h1>Halo, Dunia! 👋</h1>
+    <main>
 
-        <p>
-            Ini adalah website Project #1 saya.
-        </p>
+        <section class="hero">
+            <p class="subtitle">MY FIRST WEBSITE</p>
 
-        <p>
-            Dibuat menggunakan HTML dan GitHub Pages.
-        </p>
+            <h1>Halo, Dunia! 👋</h1>
 
-     <a href="about.html" class="button">Tentang Saya</a>
-    </div>
+            <p class="description">
+                Ini adalah website Project #1 saya yang dibuat
+                menggunakan HTML, CSS, JavaScript, dan GitHub Pages.
+            </p>
+
+            <div class="buttons">
+                <a href="about.html" class="button">Tentang Saya</a>
+
+                <button class="button secondary" onclick="showMessage()">
+                    Klik Saya
+                </button>
+            </div>
+
+            <p id="message"></p>
+        </section>
+
+        <section class="content">
+
+            <div class="card">
+                <h2>HTML</h2>
+                <p>
+                    Digunakan untuk membuat struktur halaman website.
+                </p>
+            </div>
+
+            <div class="card">
+                <h2>CSS</h2>
+                <p>
+                    Digunakan untuk mengatur tampilan dan desain website.
+                </p>
+            </div>
+
+            <div class="card">
+                <h2>JavaScript</h2>
+                <p>
+                    Digunakan untuk membuat website menjadi interaktif.
+                </p>
+            </div>
+
+        </section>
+
+    </main>
 
     <footer>
-        © 2026 Project #1
+        <p>© 2026 Project #1 - Sehan</p>
+        <p>Created with HTML, CSS & JavaScript</p>
     </footer>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
