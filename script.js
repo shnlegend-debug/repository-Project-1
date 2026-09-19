@@ -1,155 +1,258 @@
-/* =========================================
-   SEHAN//SYSTEM
-   CYBERPUNK ANIMATION ENGINE
-========================================= */
+// ========================================
+// SEHAN//SYSTEM
+// CYBERPUNK ANIMATION
+// ========================================
 
 
-/* =========================================
-   MATRIX DIGITAL RAIN
-========================================= */
+// ===============================
+// NEON RAIN
+// ===============================
 
-const canvas = document.getElementById("matrix");
-const ctx = canvas.getContext("2d");
+const canvas =
+    document.getElementById("rain");
 
-let width;
-let height;
+if (canvas) {
 
-let columns;
-let drops;
+    const ctx =
+        canvas.getContext("2d");
 
-const characters =
-    "01ABCDEFGHIJKLMNOPQRSTUVWXYZ#$%&<>[]{}";
+    let width;
+    let height;
 
-
-function resizeMatrix() {
-
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
-
-    const fontSize = 14;
-
-    columns = Math.floor(width / fontSize);
-
-    drops = [];
-
-    for (let i = 0; i < columns; i++) {
-
-        drops[i] =
-            Math.random() * -50;
-
-    }
-
-}
+    let drops = [];
 
 
-function drawMatrix() {
+    function resize() {
 
-    ctx.fillStyle =
-        "rgba(0, 0, 0, 0.06)";
+        width =
+            canvas.width =
+            window.innerWidth;
 
-    ctx.fillRect(
-        0,
-        0,
-        width,
-        height
-    );
-
-    ctx.font =
-        "14px monospace";
+        height =
+            canvas.height =
+            window.innerHeight;
 
 
-    for (
-        let i = 0;
-        i < drops.length;
-        i++
-    ) {
-
-        const character =
-            characters[
-                Math.floor(
-                    Math.random() *
-                    characters.length
-                )
-            ];
+        const amount =
+            Math.floor(width / 8);
 
 
-        ctx.fillStyle =
-            "#00ffc8";
+        drops = [];
 
 
-        ctx.fillText(
-            character,
-            i * 14,
-            drops[i] * 14
-        );
-
-
-        if (
-            drops[i] * 14 >
-                height &&
-            Math.random() > .975
+        for (
+            let i = 0;
+            i < amount;
+            i++
         ) {
 
-            drops[i] = 0;
+            drops.push({
+
+                x:
+                    Math.random() *
+                    width,
+
+                y:
+                    Math.random() *
+                    height,
+
+                speed:
+                    7 +
+                    Math.random() * 12,
+
+                length:
+                    12 +
+                    Math.random() * 25
+
+            });
 
         }
 
+    }
 
-        drops[i]++;
+
+    function rain() {
+
+        ctx.clearRect(
+            0,
+            0,
+            width,
+            height
+        );
+
+
+        drops.forEach(
+            drop => {
+
+                const bright =
+                    Math.random() >
+                    .86;
+
+
+                ctx.strokeStyle =
+                    bright
+
+                    ?
+
+                    "rgba(0,255,255,.85)"
+
+                    :
+
+                    "rgba(80,180,255,.30)";
+
+
+                ctx.beginPath();
+
+
+                ctx.moveTo(
+                    drop.x,
+                    drop.y
+                );
+
+
+                ctx.lineTo(
+                    drop.x - 2,
+                    drop.y +
+                    drop.length
+                );
+
+
+                ctx.stroke();
+
+
+                drop.y +=
+                    drop.speed;
+
+
+                if (
+                    drop.y >
+                    height
+                ) {
+
+                    drop.y =
+                        -Math.random() *
+                        100;
+
+                    drop.x =
+                        Math.random() *
+                        width;
+
+                }
+
+            }
+        );
+
+
+        requestAnimationFrame(
+            rain
+        );
 
     }
+
+
+    resize();
+
+    window.addEventListener(
+        "resize",
+        resize
+    );
+
+    rain();
 
 }
 
 
-resizeMatrix();
 
-window.addEventListener(
-    "resize",
-    resizeMatrix
-);
+// ===============================
+// CLOCK
+// ===============================
 
-
-setInterval(
-    drawMatrix,
-    45
-);
-
-
-/* =========================================
-   TERMINAL TYPING EFFECT
-========================================= */
-
-const terminal =
+const clock =
     document.getElementById(
-        "terminalText"
+        "clock"
     );
 
 
-const terminalLines = [
+function updateClock() {
+
+    if (!clock)
+        return;
+
+
+    const now =
+        new Date();
+
+
+    clock.textContent =
+        now.toLocaleTimeString(
+            "id-ID",
+            {
+                hour12:false
+            }
+        );
+
+}
+
+
+updateClock();
+
+
+setInterval(
+    updateClock,
+    1000
+);
+
+
+
+// ===============================
+// TERMINAL
+// ===============================
+
+const terminal =
+    document.getElementById(
+        "terminal"
+    );
+
+
+const messages = [
 
     "> Initializing system...",
-    "> Loading profile...",
-    "> Establishing secure connection...",
+
+    "> Loading cyber interface...",
+
+    "> Connecting to network...",
+
     "> Connection: SECURE",
+
+    "> Firewall: ACTIVE",
+
+    "> Encryption: ENABLED",
+
     "> Scanning environment...",
+
     "> Access granted.",
+
     "> Welcome, Sehan.",
+
     "> System ready."
 
 ];
 
 
-let lineIndex = 0;
+let line = 0;
 
-let characterIndex = 0;
+let character = 0;
 
 
 function typeTerminal() {
 
+    if (!terminal)
+        return;
+
+
     if (
-        lineIndex >=
-        terminalLines.length
+        line >=
+        messages.length
     ) {
 
         return;
@@ -157,39 +260,41 @@ function typeTerminal() {
     }
 
 
-    const currentLine =
-        terminalLines[lineIndex];
+    const current =
+        messages[line];
 
 
     if (
-        characterIndex <
-        currentLine.length
+        character <
+        current.length
     ) {
 
-        terminal.innerHTML +=
-            currentLine[
-                characterIndex
-            ];
+        terminal.textContent +=
+            current[character];
 
-        characterIndex++;
+        character++;
+
 
         setTimeout(
             typeTerminal,
-            35
+            30
         );
 
-    } else {
+    }
+
+    else {
 
         terminal.innerHTML +=
             "<br>";
 
-        lineIndex++;
+        line++;
 
-        characterIndex = 0;
+        character = 0;
+
 
         setTimeout(
             typeTerminal,
-            350
+            300
         );
 
     }
@@ -200,17 +305,18 @@ function typeTerminal() {
 typeTerminal();
 
 
-/* =========================================
-   MOUSE PARALLAX
-========================================= */
 
-const hero =
+// ===============================
+// PARALLAX
+// ===============================
+
+const image =
     document.querySelector(
-        ".hero"
+        ".hero-image"
     );
 
 
-const heroContent =
+const heroText =
     document.querySelector(
         ".hero-content"
     );
@@ -218,114 +324,185 @@ const heroContent =
 
 document.addEventListener(
     "mousemove",
-    (event) => {
+    event => {
 
-        if (!heroContent) {
+        if (
+            window.innerWidth <
+            800
+        )
             return;
-        }
 
 
         const x =
-            (event.clientX /
-                window.innerWidth -
-                .5) * 12;
+            event.clientX /
+            window.innerWidth -
+            .5;
 
 
         const y =
-            (event.clientY /
-                window.innerHeight -
-                .5) * 8;
+            event.clientY /
+            window.innerHeight -
+            .5;
 
 
-        heroContent.style.transform =
-            `translate(${x}px, ${y}px)`;
+        if (image) {
 
-    }
-);
+            image.style.transform =
+                `
+                scale(1.075)
+                translate3d(
+                    ${x * -10}px,
+                    ${y * -6}px,
+                    0
+                )
+                `;
 
-
-/* =========================================
-   PROJECT HOVER EFFECT
-========================================= */
-
-const projects =
-    document.querySelectorAll(
-        ".project"
-    );
-
-
-projects.forEach(
-    (project) => {
-
-        project.addEventListener(
-            "mouseenter",
-            () => {
-
-                project.style.textShadow =
-                    "0 0 10px #00ffc8";
-
-            }
-        );
-
-
-        project.addEventListener(
-            "mouseleave",
-            () => {
-
-                project.style.textShadow =
-                    "none";
-
-            }
-        );
-
-    }
-);
-
-
-/* =========================================
-   SYSTEM CLOCK
-========================================= */
-
-setInterval(
-    () => {
-
-        const online =
-            document.querySelector(
-                ".online"
-            );
-
-
-        if (!online) {
-            return;
         }
 
 
-        online.innerHTML =
-            `<span></span>
-             SYSTEM ONLINE
-             ${new Date()
-                 .toLocaleTimeString(
-                     "id-ID"
-                 )}`;
+        if (heroText) {
 
-    },
-    1000
+            heroText.style.transform =
+                `
+                translate3d(
+                    ${x * 5}px,
+                    ${y * 3}px,
+                    0
+                )
+                `;
+
+        }
+
+    }
 );
 
 
-/* =========================================
-   CONSOLE MESSAGE
-========================================= */
+
+// ===============================
+// RANDOM GLITCH
+// ===============================
+
+const glitch =
+    document.querySelector(
+        ".glitch"
+    );
+
+
+if (glitch) {
+
+    setInterval(
+        () => {
+
+            glitch.style.transform =
+                "translate(-4px,2px)";
+
+
+            setTimeout(
+                () => {
+
+                    glitch.style.transform =
+                        "translate(4px,-2px)";
+
+                },
+                70
+            );
+
+
+            setTimeout(
+                () => {
+
+                    glitch.style.transform =
+                        "translate(0)";
+
+                },
+                140
+            );
+
+        },
+        4000
+    );
+
+}
+
+
+
+// ===============================
+// SKILL ANIMATION
+// ===============================
+
+const skills =
+    document.querySelectorAll(
+        ".skill i"
+    );
+
+
+const observer =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(
+                entry => {
+
+                    if (
+                        entry.isIntersecting
+                    ) {
+
+                        const bar =
+                            entry.target;
+
+
+                        const width =
+                            bar.style.width;
+
+
+                        bar.style.width =
+                            "0";
+
+
+                        setTimeout(
+                            () => {
+
+                                bar.style.width =
+                                    width;
+
+                            },
+                            200
+                        );
+
+
+                        observer.unobserve(
+                            bar
+                        );
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
+
+skills.forEach(
+    bar =>
+        observer.observe(bar)
+);
+
+
+
+// ===============================
+// CONSOLE
+// ===============================
 
 console.log(
     "%c SEHAN//SYSTEM ",
-    "color:#00ffc8;font-size:20px;font-weight:bold;"
+    `
+    color:#00ffff;
+    font-size:24px;
+    font-weight:bold;
+    `
 );
 
 console.log(
-    "System initialized."
-);
-
-console.log(
-    "Status: ONLINE"
+    "SYSTEM ONLINE"
 );
