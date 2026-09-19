@@ -1,799 +1,1575 @@
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Space+Mono:wght@400;700&display=swap');
-
-:root {
-    --bg: #020504;
-    --panel: rgba(3, 12, 10, 0.88);
-    --green: #00ffc8;
-    --cyan: #00d9ff;
-    --pink: #ff2bd6;
-    --text: #d9fff6;
-    --muted: #71978f;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--text);
-    font-family: "Space Mono", monospace;
-    overflow-x: hidden;
+*{
+    box-sizing:border-box;
 }
 
 
-/* MATRIX */
+:root{
 
-#matrix {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -5;
-    opacity: .15;
+    --cyan:#00ffff;
+
+    --green:#00ffd5;
+
+    --pink:#ff20d6;
+
+    --blue:#008cff;
+
+    --background:#010509;
+
+    --panel:rgba(1,10,15,.88);
+
+    --text:#dfffff;
+
+    --muted:#6b9299;
+
 }
 
 
-/* GRID BACKGROUND */
-
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-
-    background-image:
-        linear-gradient(
-            rgba(0,255,200,.035) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(0,255,200,.035) 1px,
-            transparent 1px
-        );
-
-    background-size: 45px 45px;
-
-    z-index: -4;
+html{
+    scroll-behavior:smooth;
 }
 
 
-/* SCANLINES */
+body{
 
-.scanlines {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
+    margin:0;
 
     background:
+        #010509;
+
+    color:
+        var(--text);
+
+    font-family:
+        "Space Mono",
+        monospace;
+
+    overflow-x:hidden;
+
+}
+
+
+/* ==========================
+BACKGROUND
+========================== */
+
+
+.background{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-10;
+
+    background:
+
+        radial-gradient(
+            circle at 70% 40%,
+            rgba(0,255,255,.12),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(255,0,200,.07),
+            transparent 30%
+        ),
+
+        #010509;
+
+}
+
+
+#rain{
+
+    position:fixed;
+
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+    pointer-events:none;
+
+    z-index:50;
+
+    opacity:.4;
+
+}
+
+
+.scanlines{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:70;
+
+    pointer-events:none;
+
+    background:
+
         repeating-linear-gradient(
+
             to bottom,
-            transparent,
+
+            transparent 0,
+
             transparent 3px,
-            rgba(0,255,200,.025) 4px
+
+            rgba(0,255,255,.025) 4px
+
         );
 
-    z-index: 50;
 }
 
 
-/* NAVBAR */
+body::after{
 
-.navbar {
-    height: 74px;
+    content:"";
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    position:fixed;
 
-    padding: 0 4vw;
+    inset:0;
 
-    border-bottom: 1px solid rgba(0,255,200,.5);
+    pointer-events:none;
 
-    background: rgba(2,6,5,.9);
+    z-index:60;
 
-    backdrop-filter: blur(12px);
+    background:
 
-    position: sticky;
-    top: 0;
+        radial-gradient(
+            ellipse at center,
+            transparent 40%,
+            rgba(0,0,0,.65) 100%
+        );
 
-    z-index: 20;
 }
 
 
-.logo {
-    color: var(--green);
+/* ==========================
+NAVBAR
+========================== */
 
-    text-decoration: none;
 
-    font-size: 20px;
-    font-weight: bold;
+header{
+
+    height:72px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    padding:
+        0 3vw;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:100;
+
+    background:
+        rgba(1,5,9,.82);
+
+    backdrop-filter:
+        blur(12px);
+
+    border-bottom:
+        1px solid
+        rgba(0,255,255,.55);
+
+}
+
+
+.logo{
+
+    color:
+        var(--cyan);
+
+    font-family:
+        "Share Tech Mono";
+
+    font-size:
+        21px;
+
+    font-weight:bold;
+
+    text-decoration:none;
+
+    white-space:nowrap;
 
     text-shadow:
-        0 0 10px var(--green);
-}
+        0 0 12px
+        var(--cyan);
 
-.logo span {
-    color: white;
-}
-
-
-nav {
-    display: flex;
-    gap: 25px;
 }
 
 
-nav a {
-    color: #9ac8c0;
+.logo span{
 
-    text-decoration: none;
+    color:white;
 
-    font-size: 12px;
+}
 
-    transition: .25s;
+
+nav{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:25px;
+
+    flex:1;
+
+}
+
+
+nav a{
+
+    color:
+        #9cc7cc;
+
+    font-family:
+        "Share Tech Mono";
+
+    font-size:
+        12px;
+
+    text-decoration:none;
+
+    transition:.25s;
+
 }
 
 
 nav a:hover,
-nav a.active {
-    color: var(--green);
+nav a.active{
+
+    color:
+        var(--cyan);
 
     text-shadow:
-        0 0 10px var(--green);
+        0 0 12px
+        var(--cyan);
+
 }
 
 
-.online {
-    color: var(--green);
+.online{
 
-    font-size: 11px;
+    color:
+        var(--green);
+
+    font-family:
+        "Share Tech Mono";
+
+    font-size:
+        10px;
+
+    white-space:nowrap;
+
 }
 
 
-.online span {
-    display: inline-block;
+.online i{
 
-    width: 8px;
-    height: 8px;
+    display:inline-block;
 
-    margin-right: 7px;
+    width:8px;
 
-    border-radius: 50%;
+    height:8px;
 
-    background: var(--green);
-
-    box-shadow:
-        0 0 15px var(--green);
-
-    animation: pulse 1.5s infinite;
-}
-
-
-/* HERO */
-
-.hero {
-    min-height: 650px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    position: relative;
-
-    padding: 80px 6vw;
-
-    overflow: hidden;
+    border-radius:50%;
 
     background:
-        radial-gradient(
-            circle at 70% 45%,
-            rgba(0,217,255,.15),
-            transparent 30%
-        ),
-        linear-gradient(
-            90deg,
-            rgba(0,0,0,.95),
-            rgba(0,0,0,.5),
-            rgba(0,0,0,.9)
-        );
-}
-
-
-.hero-content {
-    width: 700px;
-
-    text-align: center;
-
-    z-index: 3;
-}
-
-
-/* TERMINAL */
-
-.terminal {
-    border: 1px solid rgba(0,255,200,.55);
-
-    background: var(--panel);
+        var(--green);
 
     box-shadow:
-        0 0 25px rgba(0,255,200,.05),
-        inset 0 0 30px rgba(0,255,200,.025);
-
-    font-family: "Share Tech Mono", monospace;
-}
-
-
-.left-terminal {
-    position: absolute;
-
-    left: 25px;
-    top: 50px;
-
-    width: 220px;
-
-    padding: 18px;
-
-    font-size: 11px;
-
-    color: var(--green);
-}
-
-
-.terminal-title {
-    border-bottom: 1px solid rgba(0,255,200,.3);
-
-    padding-bottom: 10px;
-
-    margin-bottom: 12px;
-
-    color: var(--cyan);
-}
-
-
-/* HERO TEXT */
-
-.eyebrow {
-    color: var(--green);
-
-    letter-spacing: 5px;
-
-    font-size: 14px;
-}
-
-
-.glitch {
-    font-family: "Share Tech Mono", monospace;
-
-    font-size: clamp(70px, 12vw, 145px);
-
-    line-height: .9;
-
-    margin: 10px 0 20px;
-
-    color: white;
-
-    letter-spacing: 8px;
-
-    position: relative;
-
-    text-shadow:
-        5px 0 var(--cyan),
-        -5px 0 var(--pink);
+        0 0 15px
+        var(--green);
 
     animation:
-        glitch 3s infinite,
-        flicker 5s infinite;
+        pulse 1.2s infinite;
+
 }
 
 
-.role {
-    font-size: 18px;
+/* ==========================
+HERO
+========================== */
+
+
+.hero{
+
+    height:
+        calc(100vh - 72px);
+
+    min-height:
+        650px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-bottom:
+        1px solid
+        rgba(0,255,255,.45);
+
 }
 
 
-.role span {
-    color: var(--green);
+.hero-image{
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:1;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(1,5,9,.98) 0%,
+            rgba(1,5,9,.86) 20%,
+            rgba(1,5,9,.40) 48%,
+            rgba(1,5,9,.05) 75%,
+            rgba(1,5,9,.35) 100%
+        ),
+
+        url("assets/hero-art.png")
+        center
+        center /
+        cover
+        no-repeat;
+
+    animation:
+        camera 18s
+        ease-in-out
+        infinite
+        alternate;
+
+}
+
+
+.hero-image::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-30%;
+
+    background:
+
+        linear-gradient(
+            110deg,
+            transparent 40%,
+            rgba(0,255,255,.12) 50%,
+            transparent 60%
+        );
+
+    animation:
+        lightSweep 8s
+        linear
+        infinite;
+
+}
+
+
+/* ==========================
+TERMINAL
+========================== */
+
+
+.terminal{
+
+    position:absolute;
+
+    left:20px;
+
+    top:25px;
+
+    width:225px;
+
+    padding:15px;
+
+    z-index:10;
+
+    background:
+        rgba(1,10,15,.82);
+
+    border:
+        1px solid
+        rgba(0,255,255,.65);
+
+    box-shadow:
+        0 0 25px
+        rgba(0,255,255,.08);
+
+    color:
+        var(--green);
+
+    font-family:
+        "Share Tech Mono";
+
+    font-size:
+        10px;
+
+    line-height:
+        1.7;
+
+}
+
+
+.terminal-title{
+
+    color:
+        var(--cyan);
+
+    border-bottom:
+        1px solid
+        rgba(0,255,255,.25);
+
+    padding-bottom:
+        8px;
+
+    margin-bottom:
+        10px;
+
+}
+
+
+.terminal-title span{
+
+    float:right;
+
+}
+
+
+.cursor{
+
+    animation:
+        blink .7s infinite;
+
+}
+
+
+/* ==========================
+HERO CONTENT
+========================== */
+
+
+.hero-content{
+
+    position:absolute;
+
+    z-index:12;
+
+    left:290px;
+
+    top:90px;
+
+    width:570px;
+
+    transition:
+        transform .15s
+        ease-out;
+
+}
+
+
+.hello{
+
+    color:
+        var(--green);
+
+    font-family:
+        "Share Tech Mono";
+
+    letter-spacing:
+        4px;
+
+    font-size:
+        15px;
+
+}
+
+
+.glitch{
+
+    margin:
+        10px 0;
+
+    font-family:
+        "Share Tech Mono";
+
+    font-size:
+        clamp(
+            70px,
+            10vw,
+            135px
+        );
+
+    line-height:
+        .8;
+
+    color:white;
+
+    letter-spacing:
+        5px;
 
     text-shadow:
-        0 0 10px var(--green);
+
+        5px 0
+        var(--cyan),
+
+        -5px 0
+        var(--pink);
+
+    animation:
+        glitch 4s infinite,
+        flicker 5s infinite;
+
 }
 
 
-.university {
-    color: var(--cyan);
+.system{
 
-    font-size: 13px;
+    color:
+        white;
+
+    font-family:
+        "Share Tech Mono";
+
+    font-size:
+        22px;
+
+    letter-spacing:
+        5px;
+
 }
 
 
-.quote {
-    max-width: 650px;
+.hero-content h2{
 
-    margin: 30px auto;
+    font-family:
+        "Share Tech Mono";
 
-    color: #b7ded7;
+    font-size:
+        17px;
 
-    border-left: 2px solid var(--green);
-
-    padding-left: 18px;
-
-    text-align: left;
 }
 
 
-/* BUTTONS */
+.hero-content h2 strong{
 
-.buttons {
-    display: flex;
+    color:
+        var(--cyan);
 
-    justify-content: center;
+    text-shadow:
+        0 0 10px
+        var(--cyan);
 
-    gap: 15px;
-
-    flex-wrap: wrap;
 }
 
 
-.btn {
-    padding: 13px 24px;
+.university{
 
-    border: 1px solid var(--green);
+    color:
+        var(--cyan);
 
-    color: var(--green);
+    font-size:
+        12px;
 
-    text-decoration: none;
-
-    font-size: 12px;
-
-    transition: .25s;
-
-    background: rgba(0,255,200,.03);
 }
 
 
-.btn:hover {
-    transform: translateY(-4px);
+.quote{
+
+    border-left:
+        2px solid
+        var(--green);
+
+    padding-left:
+        15px;
+
+    color:
+        #c5e9eb;
+
+    font-size:
+        11px;
+
+    line-height:
+        1.7;
+
+    margin:
+        25px 0;
+
+}
+
+
+.buttons{
+
+    display:flex;
+
+    gap:12px;
+
+}
+
+
+.button{
+
+    display:inline-block;
+
+    padding:
+        12px 20px;
+
+    border:
+        1px solid
+        var(--cyan);
+
+    color:
+        var(--cyan);
+
+    font-family:
+        "Share Tech Mono";
+
+    font-size:
+        11px;
+
+    text-decoration:none;
+
+    position:relative;
+
+    overflow:hidden;
+
+    transition:.3s;
+
+}
+
+
+.button:hover{
+
+    color:#001015;
+
+    background:
+        var(--cyan);
 
     box-shadow:
-        0 0 25px rgba(0,255,200,.35);
+        0 0 25px
+        rgba(0,255,255,.4);
 
-    background: var(--green);
+    transform:
+        translateY(-4px);
 
-    color: #00120d;
 }
 
 
-.btn.primary {
-    background: var(--green);
+.button.primary{
 
-    color: #00120d;
+    background:
+        var(--green);
 
-    box-shadow:
-        0 0 20px rgba(0,255,200,.3);
+    color:
+        #001015;
+
 }
 
 
-/* STATUS */
+/* ==========================
+STATUS
+========================== */
 
-.status-panel {
-    position: absolute;
 
-    right: 30px;
-    bottom: 50px;
+.status{
 
-    width: 250px;
+    position:absolute;
 
-    padding: 20px;
+    right:25px;
 
-    border: 1px solid rgba(0,255,200,.55);
+    bottom:25px;
 
-    background: var(--panel);
+    z-index:15;
+
+    width:230px;
+
+    padding:16px;
+
+    background:
+        rgba(1,10,15,.86);
+
+    border:
+        1px solid
+        rgba(0,255,255,.65);
+
 }
 
 
-.panel-title {
-    color: var(--green);
+.status h3{
 
-    margin-bottom: 20px;
+    margin-top:0;
 
-    font-size: 12px;
+    color:
+        var(--green);
+
+    font-family:
+        "Share Tech Mono";
+
+    font-size:
+        13px;
+
 }
 
 
-.status-row {
-    display: grid;
+.stat{
+
+    display:grid;
 
     grid-template-columns:
         35px 1fr 35px;
 
-    gap: 8px;
+    gap:7px;
 
-    align-items: center;
+    align-items:center;
 
-    font-size: 10px;
+    font-size:
+        9px;
 
-    margin: 15px 0;
+    margin:
+        13px 0;
+
 }
 
 
-.progress,
-.bar {
-    height: 7px;
+.stat div{
 
-    background: #08251f;
-
-    border: 1px solid rgba(0,255,200,.25);
-
-    overflow: hidden;
-}
-
-
-.progress i,
-.bar i {
-    display: block;
-
-    height: 100%;
-
-    background: var(--green);
-
-    box-shadow:
-        0 0 10px var(--green);
-
-    animation: loading 2s ease-out;
-}
-
-
-/* SECTION */
-
-.section {
-    max-width: 1200px;
-
-    margin: auto;
-
-    padding: 70px 25px;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 22px;
-}
-
-
-.card {
-    position: relative;
-
-    padding: 28px;
-
-    min-height: 300px;
-
-    border: 1px solid rgba(0,255,200,.45);
+    height:6px;
 
     background:
-        linear-gradient(
-            145deg,
-            rgba(0,255,200,.04),
-            rgba(0,0,0,.7)
-        );
+        #06222a;
 
-    transition: .3s;
+    border:
+        1px solid
+        rgba(0,255,255,.3);
+
 }
 
 
-.card:hover {
-    transform:
-        translateY(-8px)
-        perspective(500px)
-        rotateX(1deg);
+.stat i{
 
-    border-color: var(--green);
+    display:block;
+
+    height:100%;
+
+    background:
+        var(--cyan);
 
     box-shadow:
-        0 0 30px rgba(0,255,200,.12);
+        0 0 10px
+        var(--cyan);
+
+    animation:
+        barLoad 2s ease-out;
+
 }
 
 
-.card h2 {
-    color: var(--green);
+/* ==========================
+CYBER TEXT
+========================== */
 
-    font-family: "Share Tech Mono", monospace;
 
-    font-size: 16px;
+.cyber-text{
 
-    margin-top: 0;
+    position:absolute;
+
+    right:90px;
+
+    top:80px;
+
+    z-index:10;
+
+    color:
+        var(--green);
+
+    font-family:
+        "Share Tech Mono";
+
+    font-size:
+        13px;
+
+    line-height:
+        1.7;
+
+    letter-spacing:
+        2px;
+
+    animation:
+        float 4s infinite;
+
 }
 
 
-.card p {
-    color: #a8d0c8;
+/* ==========================
+SOCIAL
+========================== */
 
-    font-size: 13px;
 
-    line-height: 1.9;
+.social{
+
+    position:absolute;
+
+    right:20px;
+
+    top:70px;
+
+    z-index:20;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:7px;
+
+    padding:7px;
+
+    border:
+        1px solid
+        rgba(0,255,255,.6);
+
 }
 
 
-.card a {
-    color: var(--green);
+.social a{
 
-    text-decoration: none;
+    width:30px;
 
-    font-size: 11px;
+    height:30px;
+
+    display:grid;
+
+    place-items:center;
+
+    color:
+        var(--cyan);
+
+    font-family:
+        "Share Tech Mono";
+
+    font-size:
+        10px;
+
 }
 
 
-/* SKILLS */
+.social a:hover{
 
-.skill {
-    display: grid;
+    color:white;
+
+    text-shadow:
+        0 0 15px
+        var(--cyan);
+
+}
+
+
+/* ==========================
+CONTENT
+========================== */
+
+
+.content{
+
+    max-width:
+        1250px;
+
+    margin:auto;
+
+    padding:
+        25px 20px;
+
+    display:grid;
+
+    grid-template-columns:
+        1.2fr 1fr 1fr;
+
+    gap:18px;
+
+}
+
+
+.card{
+
+    padding:
+        20px;
+
+    min-height:
+        310px;
+
+    background:
+        var(--panel);
+
+    border:
+        1px solid
+        rgba(0,255,255,.55);
+
+    box-shadow:
+        inset 0 0 30px
+        rgba(0,255,255,.025);
+
+    transition:
+        .3s;
+
+}
+
+
+.card:hover{
+
+    transform:
+        translateY(-7px);
+
+    border-color:
+        var(--cyan);
+
+    box-shadow:
+        0 0 25px
+        rgba(0,255,255,.12);
+
+}
+
+
+.card h2{
+
+    color:
+        var(--cyan);
+
+    font-family:
+        "Share Tech Mono";
+
+    font-size:
+        15px;
+
+    border-bottom:
+        1px solid
+        rgba(0,255,255,.25);
+
+    padding-bottom:
+        10px;
+
+}
+
+
+.card p{
+
+    color:
+        #b7dfe1;
+
+    font-size:
+        11px;
+
+    line-height:
+        1.8;
+
+}
+
+
+.about-content{
+
+    display:grid;
+
+    grid-template-columns:
+        135px 1fr;
+
+    gap:15px;
+
+}
+
+
+.about-content img{
+
+    width:
+        135px;
+
+    height:
+        190px;
+
+    object-fit:
+        cover;
+
+    border:
+        1px solid
+        var(--cyan);
+
+    box-shadow:
+        0 0 15px
+        rgba(0,255,255,.2);
+
+}
+
+
+.about-content ul{
+
+    list-style:none;
+
+    padding:0;
+
+    color:
+        var(--cyan);
+
+    font-size:
+        9px;
+
+    line-height:
+        2;
+
+}
+
+
+/* ==========================
+SKILLS
+========================== */
+
+
+.skill{
+
+    display:grid;
 
     grid-template-columns:
         1fr 40px;
 
-    gap: 8px;
-
-    margin: 15px 0;
-
-    font-size: 11px;
-}
-
-
-.skill b {
-    color: var(--green);
-}
-
-
-.skill .bar {
-    grid-column: 1 / -1;
-}
-
-
-/* PROJECT */
-
-.project {
-    padding: 14px 0;
-
-    border-bottom:
-        1px solid rgba(0,255,200,.15);
-
-    transition: .2s;
-}
-
-
-.project:hover {
-    transform: translateX(8px);
-
-    color: var(--green);
-}
-
-
-.project strong {
-    display: block;
-
-    font-size: 12px;
-}
-
-
-.project small {
-    color: var(--muted);
-
-    font-size: 9px;
-}
-
-
-/* MISSION */
-
-.mission {
-    max-width: 1150px;
+    gap:5px;
 
     margin:
-        0 auto 60px;
-
-    padding: 25px;
-
-    border:
-        1px solid rgba(0,255,200,.45);
-
-    background: rgba(0,10,8,.85);
-
-    font-family:
-        "Share Tech Mono",
-        monospace;
-
-    color: var(--green);
-}
-
-
-.mission h2 {
-    text-align: center;
-
-    color: white;
-
-    letter-spacing: 4px;
+        15px 0;
 
     font-size:
-        clamp(20px, 4vw, 38px);
+        10px;
 
-    margin-top: 25px;
+}
+
+
+.skill b{
+
+    color:
+        var(--green);
+
+}
+
+
+.skill > div{
+
+    grid-column:
+        1 / -1;
+
+    height:
+        7px;
+
+    background:
+        #06222a;
+
+    border:
+        1px solid
+        rgba(0,255,255,.3);
+
+}
+
+
+.skill i{
+
+    display:block;
+
+    height:100%;
+
+    background:
+        var(--cyan);
+
+    box-shadow:
+        0 0 10px
+        var(--cyan);
+
+}
+
+
+/* ==========================
+PROJECT
+========================== */
+
+
+.project{
+
+    padding:
+        13px 0;
+
+    border-bottom:
+        1px solid
+        rgba(0,255,255,.15);
+
+    transition:
+        .2s;
+
+}
+
+
+.project:hover{
+
+    transform:
+        translateX(7px);
+
+    color:
+        var(--cyan);
+
+}
+
+
+.project strong{
+
+    display:block;
+
+    font-size:
+        11px;
+
+}
+
+
+.project small{
+
+    color:
+        var(--muted);
+
+    font-size:
+        8px;
+
+}
+
+
+/* ==========================
+MISSION
+========================== */
+
+
+.mission{
+
+    max-width:
+        1100px;
+
+    margin:
+        15px auto 40px;
+
+    padding:
+        20px;
+
+    border:
+        1px solid
+        rgba(0,255,255,.5);
+
+    background:
+        rgba(1,10,15,.9);
+
+    font-family:
+        "Share Tech Mono";
+
+    color:
+        var(--green);
+
+}
+
+
+.mission h2{
+
+    text-align:center;
+
+    color:white;
+
+    letter-spacing:
+        3px;
+
+}
+
+
+/* ==========================
+ABOUT PAGE
+========================== */
+
+
+.about-page{
+
+    max-width:
+        1100px;
+
+    margin:auto;
+
+    padding:
+        80px 20px;
+
+    min-height:
+        calc(100vh - 150px);
+
+}
+
+
+.about-page > h1{
+
+    font-size:
+        clamp(
+            60px,
+            10vw,
+            110px
+        );
+
+}
+
+
+.about-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:18px;
+
+    margin:
+        25px 0;
+
+}
+
+
+.about-image{
+
+    width:
+        220px;
+
+    height:
+        280px;
+
+    object-fit:
+        cover;
+
+    border:
+        1px solid
+        var(--cyan);
+
+    box-shadow:
+        0 0 25px
+        rgba(0,255,255,.2);
+
+}
+
+
+.neon{
+
+    color:
+        var(--green);
 
     text-shadow:
-        0 0 12px var(--cyan);
+        0 0 8px
+        var(--green);
+
 }
 
 
-/* FOOTER */
+/* ==========================
+FOOTER
+========================== */
 
-footer {
+
+footer{
+
     border-top:
-        1px solid rgba(0,255,200,.3);
+        1px solid
+        rgba(0,255,255,.3);
 
-    padding: 25px 5vw;
+    padding:
+        22px 4vw;
 
-    display: flex;
+    display:flex;
 
-    justify-content: space-between;
+    justify-content:
+        space-between;
 
-    flex-wrap: wrap;
+    color:
+        var(--muted);
 
-    gap: 15px;
+    font-family:
+        "Share Tech Mono";
 
-    color: var(--muted);
+    font-size:
+        9px;
 
-    font-size: 10px;
 }
 
 
-footer b {
-    color: var(--green);
+footer b{
+
+    color:
+        var(--green);
+
 }
 
 
-/* CURSOR */
-
-.cursor {
-    animation: blink .7s infinite;
-}
+/* ==========================
+ANIMATIONS
+========================== */
 
 
-/* ANIMATIONS */
+@keyframes pulse{
 
-@keyframes pulse {
-
-    0%, 100% {
-        opacity: 1;
+    0%,100%{
+        opacity:1;
     }
 
-    50% {
-        opacity: .25;
-    }
-
-}
-
-
-@keyframes blink {
-
-    50% {
-        opacity: 0;
+    50%{
+        opacity:.2;
     }
 
 }
 
 
-@keyframes loading {
+@keyframes blink{
 
-    from {
-        width: 0;
+    50%{
+        opacity:0;
     }
 
 }
 
 
-@keyframes flicker {
+@keyframes float{
 
-    0%, 18%, 22%, 63%, 64%, 65%, 100% {
-        opacity: 1;
-    }
-
-    20%, 62% {
-        opacity: .75;
+    50%{
+        transform:
+            translateY(-8px);
     }
 
 }
 
 
-@keyframes glitch {
+@keyframes camera{
 
-    0%, 90%, 100% {
-        transform: translate(0);
+    from{
+
+        transform:
+            scale(1.04)
+            translate3d(0,0,0);
+
     }
 
-    91% {
-        transform: translate(-3px, 2px);
-    }
+    to{
 
-    92% {
-        transform: translate(3px, -2px);
-    }
+        transform:
+            scale(1.10)
+            translate3d(-12px,-5px,0);
 
-    93% {
-        transform: translate(-2px, 0);
-    }
-}
-
-
-/* MOBILE */
-
-@media (max-width: 950px) {
-
-    .left-terminal,
-    .status-panel {
-        display: none;
-    }
-
-    .section {
-        grid-template-columns: 1fr;
     }
 
 }
 
 
-@media (max-width: 700px) {
+@keyframes lightSweep{
 
-    .navbar {
-        height: auto;
+    from{
 
-        padding: 16px 20px;
+        transform:
+            translateX(-70%);
 
-        flex-wrap: wrap;
-
-        gap: 15px;
     }
 
-    nav {
-        order: 3;
+    to{
 
-        width: 100%;
+        transform:
+            translateX(70%);
 
-        overflow-x: auto;
-
-        gap: 15px;
     }
 
-    nav a {
-        white-space: nowrap;
+}
 
-        font-size: 10px;
+
+@keyframes glitch{
+
+    0%,90%,100%{
+
+        transform:
+            translate(0);
+
     }
 
-    .online {
-        display: none;
+    91%{
+
+        transform:
+            translate(-5px,2px);
+
     }
 
-    .hero {
-        padding: 70px 20px;
+    92%{
+
+        transform:
+            translate(5px,-2px);
+
     }
 
-    .glitch {
-        font-size: 70px;
+    93%{
+
+        transform:
+            translate(-3px);
+
     }
 
-    .role {
-        font-size: 14px;
+}
+
+
+@keyframes flicker{
+
+    0%,18%,22%,63%,64%,65%,100%{
+        opacity:1;
     }
 
-    .quote {
-        font-size: 11px;
+    20%,62%{
+        opacity:.7;
     }
 
-    footer {
-        flex-direction: column;
+}
+
+
+@keyframes barLoad{
+
+    from{
+        width:0;
+    }
+
+}
+
+
+/* ==========================
+RESPONSIVE
+========================== */
+
+
+@media(max-width:1000px){
+
+    nav{
+        gap:12px;
+    }
+
+    .content{
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+}
+
+
+@media(max-width:800px){
+
+    header{
+        flex-wrap:wrap;
+        height:auto;
+        padding:14px;
+    }
+
+    nav{
+        order:3;
+        width:100%;
+        overflow-x:auto;
+        justify-content:flex-start;
+    }
+
+    .online{
+        display:none;
+    }
+
+    .hero{
+        height:680px;
+    }
+
+    .terminal{
+        display:none;
+    }
+
+    .hero-content{
+
+        left:30px;
+
+        width:
+            calc(100% - 60px);
+
+    }
+
+    .cyber-text,
+    .social,
+    .status{
+
+        display:none;
+
+    }
+
+    .content{
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    .about-grid{
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+}
+
+
+@media(max-width:500px){
+
+    .hero-image{
+
+        opacity:.5;
+
+    }
+
+    .hero-content{
+
+        top:90px;
+
+    }
+
+    .glitch{
+
+        font-size:
+            60px;
+
+    }
+
+    .about-content{
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    .about-content img{
+
+        width:100%;
+
+        height:
+            260px;
+
+    }
+
+    footer{
+
+        flex-direction:
+            column;
+
+        gap:10px;
+
     }
 
 }
