@@ -4,78 +4,391 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Project #1 - Sehan</title>
+    <meta name="description" content="Sehan Cyberpunk Portfolio - Project #1">
+
+    <title>SEHAN//SYSTEM — Cyber Portfolio</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <header>
-        <nav>
-            <div class="logo">PROJECT #1</div>
+    <div class="scanlines"></div>
 
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-            </div>
+    <!-- NAVBAR -->
+    <header class="navbar">
+
+        <a href="index.html" class="logo">
+            ◈ SEHAN<span>//SYSTEM</span>
+        </a>
+
+        <nav>
+            <a href="#home" class="active">[01] HOME</a>
+            <a href="about.html">[02] ABOUT</a>
+            <a href="#skills">[03] SKILLS</a>
+            <a href="#projects">[04] PROJECTS</a>
         </nav>
+
+        <div class="system-online">
+            <span class="dot"></span>
+            SYSTEM ONLINE
+        </div>
+
     </header>
 
+
+    <!-- MAIN -->
     <main>
 
-        <section class="hero">
-            <p class="subtitle">MY FIRST WEBSITE</p>
+        <!-- HERO -->
+        <section id="home" class="hero">
 
-            <h1>Halo, Dunia! 👋</h1>
+            <!-- TERMINAL PANEL -->
+            <aside class="terminal left-panel">
 
-            <p class="description">
-                Ini adalah website Project #1 saya yang dibuat
-                menggunakan HTML, CSS, JavaScript, dan GitHub Pages.
-            </p>
+                <p>&gt; Initializing system...</p>
+                <p>&gt; Loading profile...</p>
+                <p>&gt; Connection: Secure</p>
+                <p>&gt; Status: <b>ONLINE</b></p>
+                <p>&gt;<span class="cursor">_</span></p>
 
-            <div class="buttons">
-                <a href="about.html" class="button">Tentang Saya</a>
+            </aside>
 
-                <button class="button secondary" onclick="showMessage()">
-                    Klik Saya
-                </button>
+
+            <!-- HERO CONTENT -->
+            <div class="hero-content">
+
+                <p class="eyebrow">
+                    HELLO, I'M
+                </p>
+
+                <h1 class="glitch" data-text="SEHAN">
+                    SEHAN
+                </h1>
+
+                <p class="role">
+                    ASPIRING
+                    <span>CYBER SECURITY</span>
+                    SPECIALIST
+                </p>
+
+                <p class="university">
+                    | UNIVERSITAS BUDI LUHUR |
+                </p>
+
+                <blockquote>
+                    “Tidak cukup hanya tahu cara menggunakan teknologi,
+                    <br>
+                    tapi juga memahami bagaimana cara melindunginya.”
+                </blockquote>
+
+                <div class="hero-buttons">
+
+                    <a href="#projects" class="btn primary">
+                        ACCESS PROJECTS →
+                    </a>
+
+                    <a href="about.html" class="btn">
+                        ◉ ABOUT ME
+                    </a>
+
+                </div>
+
             </div>
 
-            <p id="message"></p>
+
+            <!-- SYSTEM STATUS -->
+            <aside class="system-card right-panel">
+
+                <p class="card-title">
+                    &gt; SYSTEM STATUS
+                </p>
+
+                <div class="stat">
+                    <span>CPU</span>
+
+                    <div>
+                        <i style="width:18%"></i>
+                    </div>
+
+                    <b>18%</b>
+                </div>
+
+                <div class="stat">
+                    <span>RAM</span>
+
+                    <div>
+                        <i style="width:42%"></i>
+                    </div>
+
+                    <b>42%</b>
+                </div>
+
+                <div class="stat">
+                    <span>DISK</span>
+
+                    <div>
+                        <i style="width:31%"></i>
+                    </div>
+
+                    <b>31%</b>
+                </div>
+
+            </aside>
+
         </section>
 
-        <section class="content">
 
-            <div class="card">
-                <h2>HTML</h2>
-                <p>
-                    Digunakan untuk membuat struktur halaman website.
-                </p>
-            </div>
+        <!-- CONTENT -->
+        <section class="grid-section" id="skills">
 
-            <div class="card">
-                <h2>CSS</h2>
-                <p>
-                    Digunakan untuk mengatur tampilan dan desain website.
-                </p>
-            </div>
 
-            <div class="card">
-                <h2>JavaScript</h2>
+            <!-- ABOUT -->
+            <article class="cyber-card">
+
+                <div class="card-heading">
+                    &gt; ABOUT ME
+                </div>
+
                 <p>
-                    Digunakan untuk membuat website menjadi interaktif.
+                    Saya Sehan, mahasiswa Teknologi Informasi yang sedang
+                    membangun fondasi di programming, Linux, networking,
+                    dan cybersecurity.
                 </p>
-            </div>
+
+                <p class="muted">
+                    Fokus:
+                    belajar →
+                    membuat →
+                    menguji →
+                    memperbaiki.
+                </p>
+
+                <a href="about.html" class="text-link">
+                    READ PROFILE →
+                </a>
+
+            </article>
+
+
+            <!-- SKILLS -->
+            <article class="cyber-card">
+
+                <div class="card-heading">
+                    &gt; SKILLS
+                </div>
+
+
+                <div class="skill">
+
+                    <span>Python</span>
+
+                    <b>90%</b>
+
+                    <div class="bar">
+                        <i style="width:90%"></i>
+                    </div>
+
+                </div>
+
+
+                <div class="skill">
+
+                    <span>C++</span>
+
+                    <b>75%</b>
+
+                    <div class="bar">
+                        <i style="width:75%"></i>
+                    </div>
+
+                </div>
+
+
+                <div class="skill">
+
+                    <span>Linux</span>
+
+                    <b>70%</b>
+
+                    <div class="bar">
+                        <i style="width:70%"></i>
+                    </div>
+
+                </div>
+
+
+                <div class="skill">
+
+                    <span>Networking</span>
+
+                    <b>65%</b>
+
+                    <div class="bar">
+                        <i style="width:65%"></i>
+                    </div>
+
+                </div>
+
+
+                <div class="skill">
+
+                    <span>Cybersecurity</span>
+
+                    <b>60%</b>
+
+                    <div class="bar">
+                        <i style="width:60%"></i>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PROJECTS -->
+            <article class="cyber-card" id="projects">
+
+                <div class="card-heading">
+                    &gt; LATEST PROJECTS
+                </div>
+
+
+                <a class="project" href="#">
+
+                    <span class="project-icon">
+                        ◈
+                    </span>
+
+                    <span>
+
+                        <strong>
+                            Project #1
+                        </strong>
+
+                        <small>
+                            HTML · CSS · JavaScript
+                        </small>
+
+                    </span>
+
+                    <b>→</b>
+
+                </a>
+
+
+                <a class="project" href="#">
+
+                    <span class="project-icon">
+                        ⌁
+                    </span>
+
+                    <span>
+
+                        <strong>
+                            Network Lab
+                        </strong>
+
+                        <small>
+                            Linux · Nmap · Wireshark
+                        </small>
+
+                    </span>
+
+                    <b>→</b>
+
+                </a>
+
+
+                <a class="project" href="#">
+
+                    <span class="project-icon">
+                        ◇
+                    </span>
+
+                    <span>
+
+                        <strong>
+                            Security Lab
+                        </strong>
+
+                        <small>
+                            Python · CTF · Web Security
+                        </small>
+
+                    </span>
+
+                    <b>→</b>
+
+                </a>
+
+
+                <a class="project" href="#">
+
+                    <span class="project-icon">
+                        ▣
+                    </span>
+
+                    <span>
+
+                        <strong>
+                            Future Project
+                        </strong>
+
+                        <small>
+                            Coming soon...
+                        </small>
+
+                    </span>
+
+                    <b>→</b>
+
+                </a>
+
+            </article>
+
+        </section>
+
+
+        <!-- MISSION -->
+        <section class="mission terminal">
+
+            <span>$</span>
+            Ready for the next mission...
+
+            <br>
+
+            <span>$</span>
+            Keep learning. Keep building. Keep growing.
+
+            <strong>
+                &gt; BUILD SOMETHING BETTER
+                <span class="cursor">_</span>
+            </strong>
 
         </section>
 
     </main>
 
+
+    <!-- FOOTER -->
     <footer>
-        <p>© 2026 Project #1 - Sehan</p>
-        <p>Created with HTML, CSS & JavaScript</p>
+
+        <span>
+            © 2026 SEHAN//SYSTEM
+        </span>
+
+        <span>
+            PROJECT #1 · BUILT WITH HTML / CSS / JS
+        </span>
+
+        <span>
+            STATUS:
+            <b>ONLINE</b>
+        </span>
+
     </footer>
+
 
     <script src="script.js"></script>
 
