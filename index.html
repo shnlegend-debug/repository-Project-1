@@ -1,298 +1,409 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="SEHAN//SYSTEM Cyberpunk Portfolio">
-    <title>SEHAN//SYSTEM</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEHAN//SYSTEM</title>
 
-    <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- DIGITAL RAIN -->
-    <canvas id="matrix"></canvas>
+<div class="background"></div>
+<canvas id="rain"></canvas>
+<div class="scanlines"></div>
 
-    <!-- SCANLINES -->
-    <div class="scanlines"></div>
+<header>
 
-    <!-- NAVBAR -->
-    <header class="navbar">
+    <a href="index.html" class="logo">
+        ◈ SEHAN<span>//SYSTEM</span>
+    </a>
 
-        <a href="index.html" class="logo">
-            ◈ SEHAN<span>//SYSTEM</span>
-        </a>
+    <nav>
+        <a class="active" href="#home">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a href="#skills">SKILLS</a>
+        <a href="#projects">PROJECTS</a>
+        <a href="#contact">CONTACT</a>
+    </nav>
 
-        <nav>
-            <a href="#home" class="active">[01] HOME</a>
-            <a href="about.html">[02] ABOUT</a>
-            <a href="#skills">[03] SKILLS</a>
-            <a href="#projects">[04] PROJECTS</a>
-        </nav>
+    <div class="online">
+        <i></i> SYSTEM ONLINE
+        <span id="clock"></span>
+    </div>
 
-        <div class="online">
-            <span></span>
-            SYSTEM ONLINE
+</header>
+
+
+<main>
+
+<section id="home" class="hero">
+
+    <!-- GAMBAR CYBERPUNK -->
+    <div class="hero-image"></div>
+
+    <!-- TERMINAL -->
+    <div class="terminal">
+
+        <div class="terminal-title">
+            SYSTEM TERMINAL
+            <span>×</span>
         </div>
 
-    </header>
+        <div id="terminal"></div>
+
+        <span class="cursor">█</span>
+
+    </div>
 
 
-    <!-- HERO -->
-    <main>
+    <!-- HERO TEXT -->
+    <div class="hero-content">
 
-        <section id="home" class="hero">
+        <p class="hello">
+            HELLO, I'M
+        </p>
 
-            <!-- LEFT TERMINAL -->
-            <div class="terminal left-terminal">
+        <h1 class="glitch">
+            SEHAN
+        </h1>
 
-                <div class="terminal-title">
-                    SYSTEM TERMINAL
-                </div>
+        <div class="system">
+            // SYSTEM
+        </div>
 
-                <div id="terminalText"></div>
+        <h2>
+            ASPIRING
+            <strong>CYBER SECURITY</strong>
+            SPECIALIST
+        </h2>
 
-                <span class="cursor">█</span>
+        <p class="university">
+            | UNIVERSITAS BUDI LUHUR |
+        </p>
 
+        <p class="quote">
+            “Tidak cukup hanya tahu cara menggunakan teknologi,
+            tapi juga memahami bagaimana cara melindunginya.”
+        </p>
+
+        <div class="buttons">
+
+            <a href="#projects" class="button primary">
+                VIEW PROJECTS →
+            </a>
+
+            <a href="about.html" class="button">
+                ABOUT ME
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- STATUS -->
+    <div class="status">
+
+        <h3>
+            &gt; SYSTEM STATUS
+        </h3>
+
+        <div class="stat">
+            <span>CPU</span>
+            <div>
+                <i style="width:25%"></i>
             </div>
+            <b>25%</b>
+        </div>
 
-
-            <!-- MAIN CONTENT -->
-            <div class="hero-content">
-
-                <p class="eyebrow">
-                    HELLO, I'M
-                </p>
-
-                <h1 class="glitch" data-text="SEHAN">
-                    SEHAN
-                </h1>
-
-                <p class="role">
-                    ASPIRING
-                    <span>CYBER SECURITY</span>
-                    SPECIALIST
-                </p>
-
-                <p class="university">
-                    | UNIVERSITAS BUDI LUHUR |
-                </p>
-
-                <p class="quote">
-                    “Tidak cukup hanya tahu cara menggunakan teknologi,
-                    tapi juga memahami bagaimana cara melindunginya.”
-                </p>
-
-                <div class="buttons">
-
-                    <a href="#projects" class="btn primary">
-                        ACCESS PROJECTS →
-                    </a>
-
-                    <a href="about.html" class="btn">
-                        ABOUT ME
-                    </a>
-
-                </div>
-
+        <div class="stat">
+            <span>RAM</span>
+            <div>
+                <i style="width:48%"></i>
             </div>
+            <b>48%</b>
+        </div>
 
-
-            <!-- SYSTEM STATUS -->
-            <div class="status-panel">
-
-                <div class="panel-title">
-                    &gt; SYSTEM STATUS
-                </div>
-
-                <div class="status">
-
-                    <div class="status-row">
-                        <span>CPU</span>
-
-                        <div class="progress">
-                            <i style="width:25%"></i>
-                        </div>
-
-                        <b>25%</b>
-                    </div>
-
-
-                    <div class="status-row">
-                        <span>RAM</span>
-
-                        <div class="progress">
-                            <i style="width:48%"></i>
-                        </div>
-
-                        <b>48%</b>
-                    </div>
-
-
-                    <div class="status-row">
-                        <span>NET</span>
-
-                        <div class="progress">
-                            <i style="width:72%"></i>
-                        </div>
-
-                        <b>72%</b>
-                    </div>
-
-                </div>
-
+        <div class="stat">
+            <span>NET</span>
+            <div>
+                <i style="width:72%"></i>
             </div>
+            <b>72%</b>
+        </div>
 
-        </section>
+    </div>
 
 
-        <!-- SKILLS -->
-        <section id="skills" class="section">
+    <!-- CYBER TEXT -->
+    <div class="cyber-text">
 
-            <div class="card">
+        CYBERSPACE<br>
+        IS NOT A PLACE<br>
+        IT'S A MINDSET
 
-                <h2>
-                    &gt; ABOUT ME
-                </h2>
+    </div>
+
+
+    <!-- SOCIAL -->
+    <div class="social" id="contact">
+
+        <a href="https://github.com/shnlegend-debug">
+            GH
+        </a>
+
+        <a href="#">
+            IG
+        </a>
+
+        <a href="#">
+            IN
+        </a>
+
+        <a href="mailto:sehan@example.com">
+            @
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- CONTENT -->
+
+<section class="content">
+
+
+    <!-- ABOUT -->
+    <article class="card about-card">
+
+        <h2>
+            &gt; ABOUT ME
+        </h2>
+
+        <div class="about-content">
+
+            <img
+                src="assets/about-portrait.png"
+                alt="Cyberpunk portrait"
+            >
+
+            <div>
 
                 <p>
                     Saya Sehan, mahasiswa Teknologi Informasi
-                    yang sedang membangun kemampuan programming,
+                    di Universitas Budi Luhur.
+                </p>
+
+                <p>
+                    Saya sedang mempelajari programming,
                     Linux, networking dan cybersecurity.
                 </p>
 
-                <a href="about.html">
-                    READ PROFILE →
-                </a>
+                <ul>
+
+                    <li>⌖ Jakarta, Indonesia</li>
+
+                    <li>▣ Information Technology</li>
+
+                    <li>◈ Cybersecurity</li>
+
+                    <li>◇ Programming</li>
+
+                </ul>
 
             </div>
 
+        </div>
 
-            <div class="card">
+    </article>
 
-                <h2>
-                    &gt; SKILLS
-                </h2>
 
-                <div class="skill">
-                    <span>Python</span>
-                    <b>90%</b>
-                    <div class="bar">
-                        <i style="width:90%"></i>
-                    </div>
-                </div>
+    <!-- SKILLS -->
+    <article
+        class="card"
+        id="skills"
+    >
 
-                <div class="skill">
-                    <span>C++</span>
-                    <b>75%</b>
-                    <div class="bar">
-                        <i style="width:75%"></i>
-                    </div>
-                </div>
+        <h2>
+            &gt; SKILLS
+        </h2>
 
-                <div class="skill">
-                    <span>Linux</span>
-                    <b>70%</b>
-                    <div class="bar">
-                        <i style="width:70%"></i>
-                    </div>
-                </div>
 
-                <div class="skill">
-                    <span>Networking</span>
-                    <b>65%</b>
-                    <div class="bar">
-                        <i style="width:65%"></i>
-                    </div>
-                </div>
+        <div class="skill">
 
-                <div class="skill">
-                    <span>Cybersecurity</span>
-                    <b>60%</b>
-                    <div class="bar">
-                        <i style="width:60%"></i>
-                    </div>
-                </div>
+            <span>Python</span>
+            <b>90%</b>
 
+            <div>
+                <i style="width:90%"></i>
             </div>
 
+        </div>
 
-            <!-- PROJECTS -->
-            <div class="card" id="projects">
 
-                <h2>
-                    &gt; PROJECTS
-                </h2>
+        <div class="skill">
 
-                <div class="project">
-                    <strong>◈ Project #1</strong>
-                    <small>HTML · CSS · JavaScript</small>
-                </div>
+            <span>C++</span>
+            <b>75%</b>
 
-                <div class="project">
-                    <strong>⌁ Network Lab</strong>
-                    <small>Linux · Nmap · Wireshark</small>
-                </div>
-
-                <div class="project">
-                    <strong>◇ Security Lab</strong>
-                    <small>Python · CTF · Web Security</small>
-                </div>
-
-                <div class="project">
-                    <strong>▣ Future Project</strong>
-                    <small>Coming soon...</small>
-                </div>
-
+            <div>
+                <i style="width:75%"></i>
             </div>
 
-        </section>
+        </div>
 
 
-        <!-- TERMINAL FOOTER -->
-        <section class="mission">
+        <div class="skill">
 
-            <p>
-                <span>$</span>
-                Ready for the next mission...
-            </p>
+            <span>Linux</span>
+            <b>70%</b>
 
-            <p>
-                <span>$</span>
-                Keep learning. Keep building. Keep growing.
-            </p>
+            <div>
+                <i style="width:70%"></i>
+            </div>
 
-            <h2>
-                &gt; BUILD SOMETHING BETTER
-                <span class="cursor">_</span>
-            </h2>
-
-        </section>
-
-    </main>
+        </div>
 
 
-    <footer>
+        <div class="skill">
 
-        <span>
-            © 2026 SEHAN//SYSTEM
-        </span>
+            <span>Networking</span>
+            <b>65%</b>
 
-        <span>
-            PROJECT #1
-        </span>
+            <div>
+                <i style="width:65%"></i>
+            </div>
 
-        <span>
-            STATUS:
-            <b>ONLINE</b>
-        </span>
-
-    </footer>
+        </div>
 
 
-    <script src="script.js"></script>
+        <div class="skill">
+
+            <span>Cybersecurity</span>
+            <b>60%</b>
+
+            <div>
+                <i style="width:60%"></i>
+            </div>
+
+        </div>
+
+    </article>
+
+
+    <!-- PROJECT -->
+    <article
+        class="card"
+        id="projects"
+    >
+
+        <h2>
+            &gt; PROJECTS
+        </h2>
+
+
+        <div class="project">
+
+            <strong>
+                ◈ Project #1
+            </strong>
+
+            <small>
+                HTML · CSS · JavaScript
+            </small>
+
+        </div>
+
+
+        <div class="project">
+
+            <strong>
+                ⌁ Network Lab
+            </strong>
+
+            <small>
+                Linux · Nmap · Wireshark
+            </small>
+
+        </div>
+
+
+        <div class="project">
+
+            <strong>
+                ◇ Security Lab
+            </strong>
+
+            <small>
+                Python · CTF · Web Security
+            </small>
+
+        </div>
+
+
+        <div class="project">
+
+            <strong>
+                ▣ Future Project
+            </strong>
+
+            <small>
+                Coming soon...
+            </small>
+
+        </div>
+
+    </article>
+
+</section>
+
+
+<!-- MISSION -->
+
+<section class="mission">
+
+    <p>
+        $ Ready for the next mission...
+    </p>
+
+    <p>
+        $ Keep learning. Keep building.
+    </p>
+
+    <h2>
+        &gt; BUILD SOMETHING BETTER
+        <span>_</span>
+    </h2>
+
+</section>
+
+</main>
+
+
+<footer>
+
+    <span>
+        © 2026 SEHAN//SYSTEM
+    </span>
+
+    <span>
+        PROJECT #1
+    </span>
+
+    <span>
+        STATUS:
+        <b>ONLINE</b>
+    </span>
+
+</footer>
+
+
+<script src="script.js"></script>
 
 </body>
-</html>
 </html>
